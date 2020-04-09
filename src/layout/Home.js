@@ -76,7 +76,7 @@ export default withStyles(homeStyles)(
           </TransitionGroup>
 
           <div className={classes.Home_footer}>
-            <div className={classes.Home_footer_item}>
+            <div className={`${classes.Home_footer_item} ${classes.About}`}>
               <h2 className={classes.Item_title}>About</h2>
               <p className={classes.about_paragraph}>
                 Made with{" "}

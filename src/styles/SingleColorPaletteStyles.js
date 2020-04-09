@@ -1,17 +1,32 @@
+import { responsive } from "../helpers/styleHelper";
+
 export default {
   SingleColorPalette: {
     maxWidth: "100vw",
     height: "100vh",
-    overflow: "hidden"
+    overflow: "hidden",
+    display: "grid",
+    gridTemplateColumns: "1fr",
+    gridTemplateRows: "minmax(5rem, 5%) 1fr minmax(5rem, 5%)",
+
+    // Responsive Styles
+    [responsive("50em")]: {
+      gridTemplateRows: "min-content 1fr minmax(5rem, 5%)",
+    },
   },
 
   SingleColorPalette_header: {
-    height: "5%",
     display: "grid",
     gridTemplateColumns: "repeat(3, 1fr)",
     alignContent: "center",
     justifyContent: "space-between",
-    padding: "0 2rem"
+    padding: "0 2rem",
+
+    [responsive("50em")]: {
+      gridTemplateColumns: "1fr",
+      gridTemplateRows: "repeat(2, min-content)",
+      padding: "1rem 0",
+    },
   },
 
   SingleColorPalette_back_btn: {
@@ -31,12 +46,17 @@ export default {
     cursor: "pointer",
 
     "&:active": {
-      transform: "scale(0.95)"
+      transform: "scale(0.95)",
     },
 
     "& span": {
-      marginRight: "1rem"
-    }
+      marginRight: "1rem",
+    },
+
+    // Responsive Styles
+    [responsive("50em")]: {
+      justifySelf: "center",
+    },
   },
   SingleColorPalette_header_dropdown: {
     justifySelf: "center",
@@ -44,7 +64,7 @@ export default {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    position: "relative"
+    position: "relative",
   },
 
   dropdown_btn: {
@@ -56,7 +76,7 @@ export default {
     padding: "0.5rem 2rem",
     borderRadius: "5px",
     textTransform: "uppercase",
-    cursor: "pointer"
+    cursor: "pointer",
   },
 
   dropdown_menu: {
@@ -73,8 +93,8 @@ export default {
     transform: "scale(0)",
 
     "& > *:not(:last-child)": {
-      borderBottom: "0.5px solid rgba(61, 70, 80, 0.5)"
-    }
+      borderBottom: "0.5px solid rgba(61, 70, 80, 0.5)",
+    },
   },
 
   dropdown_menu_show: {
@@ -82,7 +102,7 @@ export default {
     flexDirection: "column",
     transform: "scale(1)",
 
-    transition: "all 0.2s ease-in-out"
+    transition: "all 0.2s ease-in-out",
   },
 
   dropdown_menu_option: {
@@ -96,18 +116,12 @@ export default {
 
     "&:hover": {
       backgroundColor: "black",
-      color: "white"
-    }
+      color: "white",
+    },
   },
 
-  SingleColorPalette_colors: {
-    display: "flex",
-    alignItems: "flex-start",
-    flexWrap: "wrap",
-    height: "90%"
-  },
+  SingleColorPalette_colors: {},
   SingleColorPalette_footer: {
-    height: "5%",
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
@@ -115,7 +129,7 @@ export default {
     "& p": {
       fontSize: "1.5rem",
       fontWeight: 700,
-      textTransform: "uppercase"
-    }
-  }
+      textTransform: "uppercase",
+    },
+  },
 };

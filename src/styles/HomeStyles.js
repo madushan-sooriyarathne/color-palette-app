@@ -1,3 +1,5 @@
+import { responsive } from "../helpers/styleHelper";
+
 export default {
   Home: {
     minHeight: "100vh",
@@ -6,6 +8,12 @@ export default {
       "[full-start] minmax(5rem, 1fr) [mid-start] minmax(min-content, 80rem) [mid-end] minmax(5rem,1fr) [full-end ]",
     gridTemplateRows: "repeat(3, [row-start] min-content [row-end])",
     backgroundColor: "purple",
+
+    // Responsive Styles
+    [responsive("50em")]: {
+      gridTemplateColumns:
+        "[full-start] minmax(5rem, 1fr) [mid-start] minmax(min-content, 50rem) [mid-end] minmax(5rem,1fr) [full-end ]",
+    },
   },
   Home_header: {
     gridColumn: "mid-start / mid-end",
@@ -55,6 +63,11 @@ export default {
     "& > a": {
       textDecoration: "none",
     },
+
+    // Responsive Styles
+    [responsive("50em")]: {
+      gridTemplateColumns: "repeat(2, min-content)",
+    },
   },
 
   Home_footer: {
@@ -65,6 +78,19 @@ export default {
     gridTemplateColumns: "repeat(3, 1fr)",
     gap: "5rem",
     padding: "5rem 0",
+
+    // Responsive Styles
+    [responsive("34.375em")]: {
+      gridTemplateColumns: "repeat(2, [start] 1fr [end])",
+      gridTemplateRows: "repeat(2, min-content)",
+    },
+  },
+
+  About: {
+    // Responsive Styles
+    [responsive("34.375em")]: {
+      gridColumn: "start 1 / end 2",
+    },
   },
 
   Home_footer_item: {

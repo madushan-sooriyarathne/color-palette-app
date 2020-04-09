@@ -1,4 +1,5 @@
 import { getLuminance } from "../helpers/colorHelper";
+import { responsive } from "../helpers/styleHelper";
 
 export default {
   DraggableColorBox: {
@@ -13,6 +14,20 @@ export default {
     "&:hover $Content_deleteBtn": {
       fill: (props) =>
         getLuminance(props.color) >= 0.7 ? "rgba(0,0,0,0.8)" : "white",
+    },
+
+    // Responsive Styles
+    [responsive("62.5em")]: {
+      width: "25%",
+      height: "20%",
+    },
+    [responsive("50em")]: {
+      width: "50%",
+      height: "10%",
+    },
+    [responsive("31.25em")]: {
+      width: "100%",
+      height: "5%",
     },
   },
   DraggableColorBox_content: {

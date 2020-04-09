@@ -26,7 +26,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 31.25em) {
+@media only screen and (max-width: 34.375em) {
   html {
     font-size: 43.75%;
   }

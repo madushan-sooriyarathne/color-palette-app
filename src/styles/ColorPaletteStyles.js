@@ -1,21 +1,42 @@
+import { responsive } from "../helpers/styleHelper";
+
 export default {
   ColorPalette: {
     maxWidth: "100vw",
     height: "100vh",
     overflow: "hidden",
+    display: "grid",
+    gridTemplateRows: "minmax(5rem,5vh) 1fr minmax(5rem,5vh)",
+
+    // Responsive Styles
+    [responsive("50em")]: {
+      gridTemplateRows: "minmax(5rem,min-content) 1fr minmax(5rem,5vh)",
+    },
   },
 
   ColorPalette_header: {
-    height: "5%",
     display: "grid",
     gridTemplateColumns: "repeat(3, 1fr)",
     alignContent: "center",
     justifyContent: "space-between",
     padding: "0 2rem",
+
+    //Responsive Styles
+    [responsive("50em")]: {
+      gridTemplateColumns: "1fr",
+      gridTemplateRows: "repeat(3, min-content)",
+      gap: "2rem",
+      padding: "1rem 0",
+    },
   },
 
   ColorPalette_back_btn: {
     justifySelf: "start",
+
+    // Responsive Styles
+    [responsive("50em")]: {
+      justifySelf: "center",
+    },
 
     fontSize: "1.5rem",
     fontWeight: "700",
@@ -137,18 +158,18 @@ export default {
         cursor: "pointer",
       },
     },
+
+    // Responsive Styles
+    [responsive("50em")]: {
+      justifySelf: "center",
+    },
   },
 
   ColorPalette_colors: {
-    // display: "flex",
-    // alignItems: "flex-start",
-    // flexWrap: "wrap",
-    height: "90%",
     backgroundColor: "rgba(0,0,0,0.05)",
   },
 
   ColorPalette_footer: {
-    height: "5%",
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",

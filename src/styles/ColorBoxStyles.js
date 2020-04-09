@@ -1,4 +1,5 @@
 import { getLuminance } from "../helpers/colorHelper";
+import { responsive } from "../helpers/styleHelper";
 
 export const styles = {
   ColorBox: {
@@ -7,9 +8,26 @@ export const styles = {
     position: "relative",
     display: "inline-block",
     marginBottom: "-5px",
-
     "&:hover $ColorBox_copy_btn": {
       opacity: 1,
+    },
+
+    // Responsive Styles
+    [responsive("62.5em")]: {
+      width: (props) => (props.singleColorMode ? "20%" : "25%"),
+      height: (props) => (props.singleColorMode ? "50%" : "20%"),
+      marginBottom: "-4px",
+    },
+
+    [responsive("50em")]: {
+      width: "50% !important",
+      height: (props) => (props.singleColorMode ? "20%" : "10%"),
+    },
+
+    [responsive("18.75em")]: {
+      width: "100% !important",
+      height: (props) => (props.singleColorMode ? "10%" : "5%"),
+      marginBottom: "-3px",
     },
   },
   ColorBox_details: {
@@ -73,6 +91,11 @@ export const styles = {
     cursor: "pointer",
     outline: "none",
     transition: "all 0.3s ease-in-out",
+
+    [responsive("50em")]: {
+      fontSize: "1.4rem",
+      padding: "0.5rem 1rem",
+    },
   },
 
   CopyAnimation_overlay: {
@@ -118,6 +141,11 @@ export const styles = {
           ? "rgba(0,0,0, 0.2)"
           : "rgba(255, 255, 255, 0.3)",
       width: "100%",
+
+      // Responsive Styles
+      [responsive("18.75em")]: {
+        fontSize: "8rem",
+      },
     },
 
     "& p": {
