@@ -23,7 +23,7 @@ export default withStyles(styles)(
 
         paletteName: "",
         paletteEmoji: "",
-        colors: this.props.palettes[0].colors, // get colors from the material ui colors as a starter
+        colors: this.props.palettes[0].colors.map((color) => color), // get colors from the material ui colors as a starter
 
         currentColor: "#311B89",
         currentColorName: "",
@@ -230,7 +230,7 @@ export default withStyles(styles)(
 
     // Event handler from save button
     // This will prompt the emoji picker model
-    async handleFormPopupSave(palette) {
+    handleFormPopupSave(palette) {
       if (palette.paletteName) {
         const paletteId = palette.paletteName.replace(/ /g, "-").toLowerCase();
         const { palettes, addPalette, history } = this.props;
@@ -238,22 +238,25 @@ export default withStyles(styles)(
           palettes.filter((palette) => palette.id === paletteId).length === 0
         ) {
           //Clear Error Fields, close the form popup & popup the emoji picker popup
-          await this.setState({
-            formPopupError: false,
-            formPopupErrorMessage: "",
-            savePopupShown: false,
-          });
-
-          let newPalette = {
-            paletteName: palette.paletteName,
-            id: paletteId,
-            emoji: palette.emoji,
-            removable: true,
-            colors: this.state.colors,
-          };
-          addPalette(newPalette);
-          //go back to home
-          history.push("/");
+          this.setState(
+            {
+              formPopupError: false,
+              formPopupErrorMessage: "",
+              savePopupShown: false,
+            },
+            () => {
+              let newPalette = {
+                paletteName: palette.paletteName,
+                id: paletteId,
+                emoji: palette.emoji,
+                removable: true,
+                colors: this.state.colors,
+              };
+              addPalette(newPalette);
+              //go back to home
+              history.push("/");
+            }
+          );
         } else {
           this.setState({
             formPopupError: true,
@@ -433,7 +436,7 @@ export default withStyles(styles)(
           <CSSTransition
             in={this.state.closePopupShown}
             classNames="fade"
-            timeout={500}
+            timeout={300}
             unmountOnExit
           >
             <YesNoPopup
@@ -447,7 +450,7 @@ export default withStyles(styles)(
           <CSSTransition
             in={this.state.savePopupShown}
             classNames="fade"
-            timeout={500}
+            timeout={300}
             unmountOnExit
           >
             <FormPopup

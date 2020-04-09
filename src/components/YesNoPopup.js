@@ -31,7 +31,7 @@ export default withStyles(styles)(
         <div className={classes.Popup}>
           <CSSTransition
             in={active}
-            classNames="zoom"
+            classNames="fade"
             timeout={300}
             unmountOnExit
           >

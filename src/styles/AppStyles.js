@@ -1,26 +1,12 @@
 export default {
   "@global": {
-    "zoom-enter": {
-      transform: "scale(0)",
-    },
-    "zoom-enter-active": {
-      transform: "scale(1)",
-      transition: "all 0.3s 0.2s ease-in-out",
-    },
-    "zoom-exit": {
-      transform: "scale(1)",
-    },
-    "zoom-exit-active": {
-      transform: "scale(0)",
-      transition: "all 0.3s ease-in-out",
-    },
-
+    // Fade Animation
     ".fade-exit": {
       opacity: 1,
     },
     ".fade-exit-active": {
       opacity: 0,
-      transition: "opacity 0.3s 0.2s ease-in-out",
+      transition: "opacity 0.3s  ease-in-out",
     },
     ".fade-enter": {
       opacity: 0,

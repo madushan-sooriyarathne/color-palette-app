@@ -82,7 +82,7 @@ export default withStyles(styles)(
       const { classes, active } = this.props;
       return (
         <div className={classes.FormPopup}>
-          <CSSTransition in={active} timeout={300} classNames="zoom">
+          <CSSTransition in={active} timeout={300} classNames="fade">
             <div className={classes.FormPopup_window}>
               <div className={classes.FormPopup_content}>
                 <h2 className={classes.FormPopup_title}>
