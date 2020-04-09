@@ -46,7 +46,7 @@ export default {
   PaletteListItem_colorThumb: {
     width: "25rem",
     height: "15rem",
-    backgroundColor: "rgba(0,0,0,0.05)",
+    backgroundColor: "rgba(0,0,0,1)",
 
     borderRadius: "5px",
     overflow: "hidden",
@@ -57,6 +57,14 @@ export default {
       width: "20%",
       height: "25%",
       marginBottom: "-5px",
+
+      [responsive("68.75em")]: {
+        marginBottom: "-4px",
+      },
+
+      [responsive("34.75em")]: {
+        marginBottom: "-3px",
+      },
     },
 
     // Responsive Styles
