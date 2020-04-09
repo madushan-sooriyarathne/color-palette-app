@@ -1,20 +1,4 @@
 export default {
-  "@global": {
-    ".fade-exit": {
-      opacity: 1,
-    },
-    ".fade-exit-active": {
-      opacity: 0,
-      transition: "opacity 0.3s ease-in-out",
-    },
-    ".fade-enter": {
-      opacity: 0,
-    },
-    ".fade-enter-active": {
-      opacity: 1,
-      transition: "opacity 0.3s ease-in-out",
-    },
-  },
   Home: {
     minHeight: "100vh",
     display: "grid",

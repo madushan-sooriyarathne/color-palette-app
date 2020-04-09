@@ -3,6 +3,7 @@ import withStyles from "react-jss";
 
 import styles from "../styles/FormPopupStyles";
 import EmojiPopup from "../components/EmojiPopup";
+import { CSSTransition } from "react-transition-group";
 
 export default withStyles(styles)(
   class FormPopup extends Component {
@@ -78,84 +79,81 @@ export default withStyles(styles)(
     }
 
     render() {
-      const { classes } = this.props;
+      const { classes, active } = this.props;
       return (
-        <div
-          className={`${classes.FormPopup} ${
-            this.props.active && classes.FormPopup_show
-          }`}
-        >
-          <div
-            className={`${classes.FormPopup_window} ${
-              this.props.active && classes.FormPopup_window_show
-            }`}
-          >
-            <div className={classes.FormPopup_content}>
-              <h2 className={classes.FormPopup_title}>
-                Choose a palette name{" "}
-                <span role="img" aria-label="emoji">
-                  🎨
-                </span>
-              </h2>
-              <p className={classes.FormPopup_message}>
-                Please enter a name for your palette. It has to be unique!
-              </p>
-            </div>
-            <form className={classes.FormPopup_form} onSubmit={this.handleSave}>
-              <div className={classes.Form_input_group}>
-                <input
-                  type="text"
-                  autoComplete="off"
-                  id="paletteName"
-                  className={classes.Form_input}
-                  placeholder="Palette Name"
-                  value={this.state.paletteName}
-                  onChange={this.handleChange}
-                ></input>
-                <label htmlFor="paletteName" className={classes.Form_label}>
-                  Palette Name
-                </label>
+        <div className={classes.FormPopup}>
+          <CSSTransition in={active} timeout={300} classNames="zoom">
+            <div className={classes.FormPopup_window}>
+              <div className={classes.FormPopup_content}>
+                <h2 className={classes.FormPopup_title}>
+                  Choose a palette name{" "}
+                  <span role="img" aria-label="emoji">
+                    🎨
+                  </span>
+                </h2>
+                <p className={classes.FormPopup_message}>
+                  Please enter a name for your palette. It has to be unique!
+                </p>
               </div>
-              <div className={classes.Form_emoji_group}>
-                <label htmlFor="emoji" className={classes.Form_emoji_label}>
-                  Emoji
-                </label>
-                <div className={classes.Form_EmojiSelector}>
-                  <button
-                    className={classes.Form_EmojiBtn}
-                    onClick={this.handleShowEmojiPicker}
-                  >
-                    {this.state.emoji}
-                  </button>
-                  {this.state.showEmojiPopup && (
-                    <EmojiPopup
-                      active={this.state.showEmojiPopup}
-                      handleEmojiSelect={this.handleEmojiSelect}
-                    />
-                  )}
+              <form
+                className={classes.FormPopup_form}
+                onSubmit={this.handleSave}
+              >
+                <div className={classes.Form_input_group}>
+                  <input
+                    type="text"
+                    autoComplete="off"
+                    id="paletteName"
+                    className={classes.Form_input}
+                    placeholder="Palette Name"
+                    value={this.state.paletteName}
+                    onChange={this.handleChange}
+                  ></input>
+                  <label htmlFor="paletteName" className={classes.Form_label}>
+                    Palette Name
+                  </label>
                 </div>
+                <div className={classes.Form_emoji_group}>
+                  <label htmlFor="emoji" className={classes.Form_emoji_label}>
+                    Emoji
+                  </label>
+                  <div className={classes.Form_EmojiSelector}>
+                    <button
+                      className={classes.Form_EmojiBtn}
+                      onClick={this.handleShowEmojiPicker}
+                    >
+                      {this.state.emoji}
+                    </button>
+                    {this.state.showEmojiPopup && (
+                      <EmojiPopup
+                        active={this.state.showEmojiPopup}
+                        handleEmojiSelect={this.handleEmojiSelect}
+                      />
+                    )}
+                  </div>
+                </div>
+                <p
+                  className={`${classes.Form_errorMessage} ${
+                    this.props.error && classes.Form_errorMessage_show
+                  }`}
+                >{`⚠ ${this.props.errorMessage}`}</p>
+              </form>
+              <div className={classes.FormPopup_btnSet}>
+                <button
+                  className={`${classes.BtnSet_btn} ${classes.Btn_cancel}`}
+                  onClick={this.handleCancel}
+                >
+                  Cancel
+                </button>
+                <button
+                  className={`${classes.BtnSet_btn} ${classes.Btn_save}`}
+                  onClick={this.handleSave}
+                >
+                  Save
+                </button>
               </div>
-              <p
-                className={`${classes.Form_errorMessage} ${
-                  this.props.error && classes.Form_errorMessage_show
-                }`}
-              >{`⚠ ${this.props.errorMessage}`}</p>
-            </form>
-            <div className={classes.FormPopup_btnSet}>
-              <button
-                className={`${classes.BtnSet_btn} ${classes.Btn_cancel}`}
-                onClick={this.handleCancel}
-              >
-                Cancel
-              </button>
-              <button
-                className={`${classes.BtnSet_btn} ${classes.Btn_save}`}
-                onClick={this.handleSave}
-              >
-                Save
-              </button>
             </div>
-          </div>
+          </CSSTransition>
         </div>
       );
     }

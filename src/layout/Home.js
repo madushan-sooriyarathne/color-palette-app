@@ -147,12 +147,20 @@ export default withStyles(homeStyles)(
           </div>
 
           {/* Popup */}
-          <YesNoPopup
-            active={this.state.deletePopupShown}
-            handleAccept={this.handleYesNoPopupAccept}
-            handleDecline={this.handleYesNoPopupDecline}
-            message={`Do you really want to delete the palette?`}
-          />
+
+          <CSSTransition
+            in={this.state.deletePopupShown}
+            classNames="fade"
+            timeout={300}
+            unmountOnExit
+          >
+            <YesNoPopup
+              active={this.state.deletePopupShown}
+              handleAccept={this.handleYesNoPopupAccept}
+              handleDecline={this.handleYesNoPopupDecline}
+              message={`Do you really want to delete the palette?`}
+            />
+          </CSSTransition>
         </div>
       );
     }

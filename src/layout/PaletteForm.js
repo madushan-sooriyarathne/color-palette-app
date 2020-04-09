@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import withStyles from "react-jss";
 import { SketchPicker } from "react-color";
+import { CSSTransition } from "react-transition-group";
 
 import styles from "../styles/PaletteFormStyles";
 import { getLuminance } from "../helpers/colorHelper";
@@ -429,21 +430,35 @@ export default withStyles(styles)(
           </div>
 
           {/* Popup models / windows */}
-          <YesNoPopup
-            active={this.state.closePopupShown}
-            handleAccept={this.handleYesNoPopupAccept}
-            handleDecline={this.handleYesNoPopupDecline}
-            message={`Do you really want to discard the palette you made?`}
-          />
+          <CSSTransition
+            in={this.state.closePopupShown}
+            classNames="fade"
+            timeout={500}
+            unmountOnExit
+          >
+            <YesNoPopup
+              active={this.state.closePopupShown}
+              handleAccept={this.handleYesNoPopupAccept}
+              handleDecline={this.handleYesNoPopupDecline}
+              message={`Do you really want to discard the palette you made?`}
+            />
+          </CSSTransition>
 
-          <FormPopup
-            active={this.state.savePopupShown}
-            error={this.state.formPopupError}
-            errorMessage={this.state.formPopupErrorMessage}
-            handleChange={this.handlePaletteNameChange}
-            handleSave={this.handleFormPopupSave}
-            handleCancel={this.handleFormPopupClose}
-          />
+          <CSSTransition
+            in={this.state.savePopupShown}
+            classNames="fade"
+            timeout={500}
+            unmountOnExit
+          >
+            <FormPopup
+              active={this.state.savePopupShown}
+              error={this.state.formPopupError}
+              errorMessage={this.state.formPopupErrorMessage}
+              handleChange={this.handlePaletteNameChange}
+              handleSave={this.handleFormPopupSave}
+              handleCancel={this.handleFormPopupClose}
+            />
+          </CSSTransition>
         </div>
       );
     }

@@ -8,17 +8,12 @@ export default {
     backdropFilter: "blur(10px)",
     backgroundColor: "rgba(0,0,0,0.2)",
     zIndex: 60,
-    transition: "all 0.2s ease-in-out",
-    opacity: 0,
-    visibility: "hidden",
+    opacity: 1,
+    visibility: "visible",
 
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-  },
-  Popup_show: {
-    opacity: 1,
-    visibility: "visible",
   },
   Popup_window: {
     backgroundColor: "white",
@@ -27,15 +22,8 @@ export default {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    visibility: "hidden",
-    opacity: 0,
-    transform: "scale(.25)",
-    transition: "all 0.2s 0.2s",
-  },
-  Popup_window_show: {
     visibility: "visible",
     opacity: 1,
-    transform: "scale(1)",
   },
   Popup_content: {
     display: "flex",
