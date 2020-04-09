@@ -68,6 +68,11 @@ export default {
     [responsive("50em")]: {
       gridTemplateColumns: "repeat(2, min-content)",
     },
+
+    [responsive("31.25em")]: {
+      gridTemplateColumns: "min-content",
+      justifyContent: "center",
+    },
   },
 
   Home_footer: {

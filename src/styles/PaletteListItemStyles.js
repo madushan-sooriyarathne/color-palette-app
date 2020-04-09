@@ -1,3 +1,5 @@
+import { responsive } from "../helpers/styleHelper";
+
 export default {
   PaletteListItem: {
     display: "flex",
@@ -55,6 +57,15 @@ export default {
       width: "20%",
       height: "25%",
       marginBottom: "-5px",
+    },
+
+    // Responsive Styles
+    [responsive("31.25em")]: {
+      width: "40rem",
+    },
+
+    [responsive("21.875em")]: {
+      width: "30rem",
     },
   },
   PaletteListItem_details: {

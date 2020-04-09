@@ -1,3 +1,5 @@
+import { responsive } from "../helpers/styleHelper";
+
 const sideBarWidth = 35;
 
 export default {
@@ -20,6 +22,11 @@ export default {
     alignItems: "center",
     padding: "5rem 1rem",
     transition: "all .2s ease-in-out",
+
+    // Responsive Styles
+    [responsive("28.125em")]: {
+      width: "100vw",
+    },
   },
   PaletteForm_sideBar_hide: {
     left: `-${sideBarWidth}rem`,
@@ -160,6 +167,11 @@ export default {
     width: "100vw",
     marginLeft: `${sideBarWidth}rem`,
     transition: "all .2s ease-in-out",
+
+    // Responsive Styles
+    [responsive("28.125em")]: {
+      marginLeft: "100vw",
+    },
   },
   navBar: {
     height: "8%",
