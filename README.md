@@ -15,6 +15,13 @@ find this project live 👉 [here](https://color-palette-app.netlify.com/)
 - Delete color palettes from the list. (user can only delete the palette they made. delete functionality not available for pre-made palettes.)
 - Save color palettes to the browser's localStorage.
 
+### Tech stack used for this project
+
+-  React JS 
+-  JSS (CSS in JS)
+-  JSX 
+
+
 ###Run this in your local machine
 
 1. clone the repo
