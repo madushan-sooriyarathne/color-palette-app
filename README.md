@@ -22,7 +22,7 @@ find this project live 👉 [here](https://color-palette-app.netlify.com/)
 -  JSX 
 
 
-###Run this in your local machine
+### Run this in your local machine
 
 1. clone the repo
 
